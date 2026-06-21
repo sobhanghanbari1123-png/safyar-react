@@ -1,0 +1,153 @@
+/* ── info strip ── */
+.er-info-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 12px 20px;
+  background: var(--card-bg, var(--card));
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-muted);
+  align-items: center;
+}
+.er-total { margin-right: auto; font-size: 15px; }
+.er-total strong { color: var(--primary); }
+
+/* ── sections ── */
+.er-section { margin-bottom: 24px; }
+.er-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.er-count {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  background: var(--border);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+.er-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* ── categories ── */
+.er-cat { margin-bottom: 14px; }
+.er-cat-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 7px;
+}
+
+/* ── part chips (shared with Wizard) ── */
+.parts-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+.part-chip {
+  padding: 5px 13px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.part-chip.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #111;
+  font-weight: 700;
+}
+.part-chip:hover:not(.selected) { border-color: var(--primary); color: var(--primary); }
+
+/* ── add form box ── */
+.er-add-box {
+  background: var(--input-bg, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+.er-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.er-opt { font-size: 12px; font-weight: 400; color: var(--text-muted); }
+
+/* ── table ── */
+.er-editing-row td {
+  padding: 6px 6px;
+  background: rgba(251,191,36,.06);
+  border-top: 1px solid rgba(251,191,36,.2);
+  border-bottom: 1px solid rgba(251,191,36,.2);
+}
+
+.er-editing-row select,
+.er-editing-row input {
+  font-family: Tahoma, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--input-bg, #1e293b);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s;
+  width: 100%;
+}
+.er-editing-row select:focus,
+.er-editing-row input:focus {
+  border-color: var(--primary);
+}
+
+.er-inline-input       { min-width: 100px; }
+.er-inline-days        { min-width: 60px; max-width: 72px; }
+.er-btn-save {
+  background: rgba(16,185,129,.12) !important;
+  border: 1px solid rgba(16,185,129,.4) !important;
+  color: #10b981 !important;
+}
+.er-btn-save:hover { background: #10b981 !important; color: #fff !important; }
+
+.er-total-row td {
+  border-top: 2px solid var(--border);
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.er-empty {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 15px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+}
+
+/* ── footer ── */
+.er-footer {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+/* ── responsive ── */
+@media (max-width: 600px) {
+  .er-form-grid { grid-template-columns: 1fr 1fr; }
+  .er-info-strip { font-size: 13px; gap: 8px 16px; }
+  .er-total { width: 100%; margin-right: 0; }
+}
+@media (max-width: 400px) {
+  .er-form-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,203 @@
+/* ── Wrap — centered ── */
+.settings-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Tabs — centered ── */
+.settings-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stab {
+  padding: 9px 22px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--bg2);
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.stab:hover  { border-color: var(--primary); color: var(--primary); }
+.stab.active { background: var(--primary); color: #1e293b; border-color: var(--primary); }
+
+/* ── Form sections ── */
+.settings-section { display: flex; flex-direction: column; gap: 16px; }
+.settings-form    { display: flex; flex-direction: column; gap: 0; }
+
+.settings-actions {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Logo upload ── */
+.logo-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 4px;
+}
+.logo-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  background: var(--bg3);
+  border: 2px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.logo-img         { width: 100%; height: 100%; object-fit: cover; }
+.logo-placeholder { font-size: 36px; }
+.logo-title       { font-weight: 700; font-size: 14px; color: var(--text); margin: 0 0 4px; }
+.logo-hint        { font-size: 12px; color: var(--text2); margin: 0 0 10px; }
+.logo-upload-info { display: flex; flex-direction: column; gap: 8px; }
+.logo-btn         { cursor: pointer; display: inline-block; }
+
+.btn-danger-sm {
+  background: rgba(220,38,38,0.1);
+  border: 1px solid rgba(220,38,38,0.3);
+  color: #dc2626;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.btn-danger-sm:hover { background: rgba(220,38,38,0.2); }
+
+/* ── Work hours ── */
+.hours-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  background: rgba(251,191,36,0.08);
+  border: 1.5px solid rgba(251,191,36,0.3);
+  border-radius: 14px;
+}
+.hours-icon { font-size: 32px; }
+.hours-main { font-size: 20px; font-weight: 800; color: var(--text); }
+.hours-sub  { font-size: 13px; color: var(--text2); margin-top: 3px; }
+
+.off-day-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.off-day-option {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--bg2);
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.off-day-option:hover   { border-color: var(--primary); color: var(--primary); }
+.off-day-option.selected{ background: var(--primary); color: #1e293b; border-color: var(--primary); }
+
+/* ── Tracking code card ── */
+.tracking-settings-card {
+  background: var(--bg2);
+  border: 1.5px solid rgba(251,191,36,0.3);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.tracking-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.tracking-icon  { font-size: 28px; flex-shrink: 0; }
+.tracking-title { font-size: 15px; font-weight: 800; color: var(--text); }
+.tracking-sub   { font-size: 13px; color: var(--text2); margin-top: 3px; }
+.tracking-preview {
+  color: var(--primary);
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.field-hint {
+  font-size: 11px;
+  color: var(--text2);
+  margin-top: 3px;
+  display: block;
+}
+
+/* ── Invoice preview ── */
+.invoice-preview {
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+.inv-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+}
+.inv-logo    { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.inv-logo-ph { font-size: 40px; flex-shrink: 0; }
+.inv-name    { font-size: 16px; font-weight: 800; color: var(--text); }
+.inv-detail  { font-size: 12px; color: var(--text2); margin-top: 3px; }
+
+.inv-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; }
+.inv-row  { display: flex; justify-content: space-between; font-size: 13px; color: var(--text); }
+
+.settings-note {
+  font-size: 12px;
+  color: var(--text2);
+  padding: 10px 14px;
+  background: var(--bg2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .settings-tabs         { gap: 4px; }
+  .stab                  { padding: 8px 10px; font-size: 12px; flex: 1; text-align: center; }
+  .logo-upload-row       { flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+  .logo-upload-info      { align-items: center; }
+  .hours-preview-card    { flex-direction: column; text-align: center; }
+  .tracking-header       { flex-direction: column; text-align: center; }
+  .tracking-settings-card{ padding: 14px; }
+}
+@media (max-width: 480px) {
+  .settings-wrap         { padding: 0; }
+  .stab                  { font-size: 11px; padding: 7px 6px; }
+  .invoice-preview       { font-size: 13px; }
+  .inv-header            { padding: 12px 14px; gap: 10px; }
+  .inv-body              { padding: 10px 14px; }
+  .inv-logo              { width: 40px; height: 40px; }
+  .inv-logo-ph           { font-size: 32px; }
+  .inv-name              { font-size: 14px; }
+}

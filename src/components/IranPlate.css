@@ -1,0 +1,192 @@
+/* ════════════════════════════════════════
+   Iranian License Plate  —  Realistic v2
+   Real layout: [BLUE LEFT] [WHITE RIGHT]
+   White reads LTR: d3 – letter – d2
+   ════════════════════════════════════════ */
+
+.irp-outer {
+  display: inline-flex;
+  background: linear-gradient(145deg, #f9ca00 0%, #e8a800 40%, #f9ca00 70%, #e0a000 100%);
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow:
+    0 0 0 2px rgba(0,0,0,0.6),
+    0 8px 28px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  direction: ltr;
+  flex-shrink: 0;
+}
+
+.irp-inner {
+  display: flex;
+  align-items: stretch;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0,0,0,0.22);
+}
+
+/* ── Blue strip — LEFT side (as on real plates) ── */
+.irp-blue {
+  background: linear-gradient(180deg, #0038a8 0%, #002d8a 50%, #001f6b 100%);
+  width: 48px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 3px;
+  border-right: 1.5px solid rgba(0,0,0,0.25);
+  gap: 1px;
+}
+
+.irp-stars {
+  font-size: 5.5px;
+  color: rgba(255,215,0,0.75);
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+
+.irp-emblem {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  line-height: 1;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+/* CSS-drawn Iran flag — always crisp, theme-independent (no emoji) */
+.irp-flag-g,
+.irp-flag-w,
+.irp-flag-r { flex: 1; width: 100%; }
+.irp-flag-g { background: #1f9b4e; }
+.irp-flag-w { background: #ffffff; }
+.irp-flag-r { background: #db2727; }
+
+.irp-iran {
+  color: #ffffff;
+  font-size: 8.5px;
+  font-weight: 800;
+  font-family: 'Vazirmatn', Arial, sans-serif;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.irp-code {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  padding: 1px 3px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+/* ── White section — RIGHT side ── */
+.irp-white {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 6px 10px 6px 14px;
+  background: #f6f7f2;
+  position: relative;
+  min-width: 0;
+}
+
+/* Embossed dot row */
+.irp-white::before {
+  content: '· · · · · · · · · · · · ·';
+  position: absolute;
+  top: 2px;
+  left: 6px; right: 6px;
+  text-align: center;
+  font-size: 5px;
+  color: rgba(0,0,0,0.1);
+  letter-spacing: 3px;
+  pointer-events: none;
+}
+
+/* Bottom line */
+.irp-white::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 10%; right: 10%;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+}
+
+.irp-num {
+  font-family: 'Courier New', 'Roboto Mono', monospace;
+  font-size: 27px;
+  font-weight: 900;
+  color: #0a0a0a;
+  letter-spacing: 0px;
+  line-height: 1;
+  user-select: none;
+}
+
+.irp-letter {
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #0a0a0a;
+  line-height: 1;
+  min-width: 52px;   /* enough for الف */
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.irp-sep {
+  font-size: 20px;
+  color: rgba(0,0,0,0.35);
+  font-weight: 300;
+  line-height: 1;
+  padding: 0 1px;
+  align-self: center;
+  user-select: none;
+}
+
+/* ── Small variant ── */
+.irp-outer.irp-sm { padding: 3px; border-radius: 8px; }
+.irp-outer.irp-sm .irp-white   { padding: 4px 10px 4px 6px; }
+.irp-outer.irp-sm .irp-blue    { width: 36px; padding: 4px 2px; }
+.irp-outer.irp-sm .irp-num     { font-size: 18px; }
+.irp-outer.irp-sm .irp-letter  { font-size: 16px; min-width: 40px; }
+.irp-outer.irp-sm .irp-sep     { font-size: 14px; }
+.irp-outer.irp-sm .irp-iran    { font-size: 7px; }
+.irp-outer.irp-sm .irp-code    { font-size: 10px; }
+.irp-outer.irp-sm .irp-emblem  { width: 16px; height: 16px; font-size: 9px; }
+.irp-outer.irp-sm .irp-stars   { font-size: 4px; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .irp-outer  { padding: 4px; }
+  .irp-num    { font-size: 21px; }
+  .irp-letter { font-size: 20px; min-width: 46px; }
+  .irp-sep    { font-size: 15px; }
+  .irp-blue   { width: 40px; }
+  .irp-iran   { font-size: 7.5px; }
+  .irp-code   { font-size: 10px; }
+  .irp-emblem { width: 18px; height: 18px; font-size: 11px; }
+  .irp-white  { padding: 5px 10px 5px 7px; }
+}
+
+@media (max-width: 360px) {
+  .irp-num    { font-size: 17px; }
+  .irp-letter { font-size: 16px; min-width: 40px; }
+  .irp-sep    { font-size: 12px; padding: 0; }
+  .irp-blue   { width: 34px; }
+  .irp-iran   { font-size: 6.5px; }
+  .irp-code   { font-size: 9px; }
+  .irp-stars  { letter-spacing: 0.5px; }
+  .irp-white  { padding: 4px 8px 4px 5px; gap: 0; }
+}

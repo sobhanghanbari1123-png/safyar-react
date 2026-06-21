@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "safyar-react",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "salon",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "../salon-booking", "run", "dev"],
+      "port": 5173
+    }
+  ]
+}

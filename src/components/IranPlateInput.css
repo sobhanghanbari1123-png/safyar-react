@@ -1,0 +1,233 @@
+/* ── Root — position:relative so dropdown can anchor here ── */
+.irpi-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  position: relative;   /* dropdown anchors to this */
+}
+
+/* Make the plate fill its container width */
+.irp-outer.irpi-outer {
+  display: flex;
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
+}
+
+.irp-outer.irpi-outer .irp-inner {
+  flex: 1;
+  min-width: 0;
+  /* overflow:hidden stays — dropdown is now OUTSIDE the plate */
+}
+
+/* White section fills remaining space */
+.irp-outer.irpi-outer .irp-white.irpi-white {
+  flex: 1;
+  min-width: 0;
+  gap: 0;
+}
+
+/* ── Number inputs — always white-plate colors regardless of theme ── */
+.irpi-num {
+  border: none !important;
+  outline: none;
+  background: transparent !important;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 27px;
+  font-weight: 900;
+  color: #0a0a0a !important;
+  padding: 0 2px !important;
+  border-radius: 0 !important;
+  -moz-appearance: textfield;
+  caret-color: #003399;
+  min-width: 0;
+  width: auto;
+  box-shadow: none !important;
+}
+.irpi-num::-webkit-outer-spin-button,
+.irpi-num::-webkit-inner-spin-button { -webkit-appearance: none; }
+.irpi-num::placeholder { color: rgba(0,0,0,0.22) !important; }
+.irpi-num:focus { border: none !important; box-shadow: none !important; outline: none !important; }
+.irpi-w2 { width: 42px !important; }
+.irpi-w3 { width: 54px !important; }
+
+/* ── Letter input ── */
+.irpi-letter-inp {
+  border: none !important;
+  outline: none;
+  background: transparent !important;
+  text-align: center;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #0a0a0a !important;
+  width: 68px !important;   /* wide enough for الف (3 chars) */
+  padding: 0 2px !important;
+  border-radius: 0 !important;
+  caret-color: #003399;
+  cursor: text;
+  box-shadow: none !important;
+}
+.irpi-letter-inp:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.irpi-letter-inp::placeholder { color: rgba(0,0,0,0.22) !important; }
+/* Highlight when focused so user knows it's active */
+.irpi-letter-inp:focus { background: rgba(251,191,36,0.12) !important; border-radius: 4px !important; }
+
+/* ── Letter dropdown — portal, floats above everything ── */
+.irpi-letter-drop {
+  position: absolute; /* fallback */
+  background: var(--card-bg);
+  border: 1.5px solid rgba(251,191,36,0.4);
+  border-radius: 16px;
+  padding: 14px 12px 12px;
+  z-index: 700;
+  min-width: 240px;
+  max-width: 300px;
+  width: max-content;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(251,191,36,0.1);
+  animation: dropFadeIn 0.18s ease;
+}
+
+/* Portal variant — fixed position, centered on trigger via JS */
+.irpi-drop-portal {
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 99999 !important;
+}
+
+@keyframes dropFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)      scale(1);    }
+}
+
+/* Title row inside dropdown */
+.irpi-drop-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text2);
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.irpi-drop-sel {
+  color: var(--primary);
+  font-size: 13px;
+}
+
+/* Letter buttons grid */
+.irpi-drop-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.irpi-letter-opt {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  font-family: 'Vazirmatn', sans-serif;
+  transition: all 0.13s;
+  text-align: center;
+}
+.irpi-letter-opt:hover {
+  background: rgba(251,191,36,0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.06);
+}
+.irpi-letter-opt.active {
+  background: var(--primary);
+  color: #1e293b;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(251,191,36,0.4);
+}
+
+.irpi-no-match {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text2);
+  padding: 10px;
+}
+
+/* ── Blue strip — city code input ── */
+.irp-outer.irpi-outer .irp-blue.irpi-blue {
+  width: 48px;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+.irpi-code-inp {
+  border: none !important;
+  outline: none;
+  background: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 900;
+  width: 34px !important;
+  height: 20px;
+  border-radius: 4px !important;
+  -moz-appearance: textfield;
+  caret-color: #fbbf24;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.irpi-code-inp::-webkit-outer-spin-button,
+.irpi-code-inp::-webkit-inner-spin-button { -webkit-appearance: none; }
+.irpi-code-inp::placeholder { color: rgba(255,255,255,0.35) !important; font-size: 10px; }
+.irpi-code-inp:focus {
+  background: rgba(255,255,255,0.28) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Hint text ── */
+.irpi-hint {
+  font-size: 11px;
+  color: var(--text2);
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .irp-outer.irpi-outer   { max-width: 100%; }
+  .irpi-num               { font-size: 21px; }
+  .irpi-w2                { width: 34px !important; }
+  .irpi-w3                { width: 46px !important; }
+  .irpi-letter-inp        { font-size: 19px; width: 56px !important; }
+  .irpi-code-inp          { width: 30px !important; font-size: 11px; }
+  .irp-outer.irpi-outer .irp-blue.irpi-blue { width: 40px; }
+  .irpi-letter-drop       { min-width: 210px; }
+}
+
+@media (max-width: 360px) {
+  .irpi-num               { font-size: 17px; }
+  .irpi-w2                { width: 28px !important; }
+  .irpi-w3                { width: 38px !important; }
+  .irpi-letter-inp        { font-size: 15px; width: 48px !important; }
+  .irpi-code-inp          { width: 26px !important; font-size: 10px; }
+  .irp-outer.irpi-outer .irp-blue.irpi-blue { width: 34px; }
+  .irpi-letter-drop       { min-width: 190px; }
+}

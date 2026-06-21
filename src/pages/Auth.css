@@ -1,0 +1,293 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.auth-theme-toggle {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 36px;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-logo-icon { font-size: 48px; display: block; }
+.auth-logo svg { filter: drop-shadow(0 4px 16px rgba(246,168,0,.35)); }
+.auth-logo-text {
+  margin: 8px 0 4px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
+}
+.auth-tagline { margin: 0; font-size: 13px; color: var(--text2); }
+
+.auth-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.auth-forgot {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: 20px;
+}
+.auth-switch a { color: var(--primary); font-weight: 600; }
+
+/* Register scrollable card */
+.auth-card-scroll {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Forgot password steps */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg3);
+  transition: background 0.3s;
+}
+.step-dot.active { background: var(--primary); }
+
+.otp-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+  direction: ltr;
+}
+
+.otp-input {
+  width: 44px;
+  height: 52px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+}
+.otp-input:focus { border-color: var(--primary); }
+
+.otp-timer { text-align: center; font-size: 13px; color: var(--text2); margin-bottom: 16px; }
+
+/* ── Captcha (5 uppercase letters) ── */
+.captcha-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.captcha-code {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  border-radius: 10px;
+  border: 2px solid var(--input-border);
+  background:
+    repeating-linear-gradient(45deg, rgba(125,125,125,0.06) 0 6px, transparent 6px 12px),
+    var(--input-bg);
+  direction: ltr;
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+}
+.captcha-char {
+  font-family: 'Courier New', monospace;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--primary);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.18);
+  letter-spacing: 1px;
+}
+.captcha-char:nth-child(odd)  { transform: rotate(-8deg) translateY(-2px); }
+.captcha-char:nth-child(even) { transform: rotate(7deg)  translateY(2px); color: var(--primary-dark); }
+.captcha-char:nth-child(3)    { transform: rotate(-3deg) scale(1.1); }
+
+.captcha-refresh {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 2px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text2);
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.4s ease, color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.captcha-refresh:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: rotate(180deg);
+}
+
+/* ── صفحه موفقیت ثبت‌نام ── */
+.register-success {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.register-success-icon {
+  font-size: 52px;
+  text-align: center;
+}
+.register-success-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+}
+.register-success-msg {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.register-success-msg strong {
+  color: var(--primary);
+}
+
+.register-support-box {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.register-support-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.register-support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.register-support-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.rs-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.rs-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  direction: ltr;
+  text-align: right;
+}
+.rs-hours {
+  color: var(--text);
+  direction: rtl;
+  text-align: right;
+  font-size: 13px;
+}
+
+/* ── پیام بلاک ورود ── */
+.auth-block-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.auth-block-msg span {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.auth-block-msg strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.auth-block-msg p {
+  margin: 0;
+  color: inherit;
+  opacity: .85;
+}
+.auth-block-pending {
+  background: rgba(245,158,11,.1);
+  border: 1px solid rgba(245,158,11,.35);
+  color: #d97706;
+}
+.auth-block-rejected {
+  background: rgba(239,68,68,.1);
+  border: 1px solid rgba(239,68,68,.35);
+  color: #dc2626;
+}
+.auth-block-help-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: underline;
+  opacity: .85;
+  transition: opacity .15s;
+}
+.auth-block-help-link:hover { opacity: 1; }
+
