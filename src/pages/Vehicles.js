@@ -25,16 +25,16 @@ const COLOR_DOT = {
 };
 
 const EMPTY_PLATE = { p1:'', letter:'', p2:'', province:'' };
-const EMPTY = { plateP1:'', plateLetter:'', plateP2:'', plateProvince:'', brand:'', model:'', color:'سفید', ownerName:'', ownerPhone:'' };
+const EMPTY = { plateP1:'', plateLetter:'', plateP2:'', plateProvince:'', carName:'', color:'سفید', ownerName:'', ownerPhone:'' };
 
 function load() {
   try {
     const d = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     if (d.length) return d;
     return [
-      { id:1, plateP1:'۱۲', plateLetter:'الف', plateP2:'۳۴۵', plateProvince:'۶۷', brand:'پژو',  model:'۲۰۶', color:'سفید',    ownerName:'علی احمدی',   ownerPhone:'09121234567' },
-      { id:2, plateP1:'۴۴', plateLetter:'ن',   plateP2:'۸۸۱', plateProvince:'۳۳', brand:'سمند', model:'LX',   color:'نقره‌ای',  ownerName:'مریم رضایی', ownerPhone:'09351234567' },
-      { id:3, plateP1:'۷۸', plateLetter:'س',   plateP2:'۲۲۳', plateProvince:'۱۱', brand:'دنا',  model:'Plus', color:'مشکی',    ownerName:'حسن کریمی',  ownerPhone:'09181234567' },
+      { id:1, plateP1:'۱۲', plateLetter:'الف', plateP2:'۳۴۵', plateProvince:'۶۷', carName:'پژو ۲۰۶',  color:'سفید',    ownerName:'علی احمدی',   ownerPhone:'09121234567' },
+      { id:2, plateP1:'۴۴', plateLetter:'ن',   plateP2:'۸۸۱', plateProvince:'۳۳', carName:'سمند LX',   color:'نقره‌ای',  ownerName:'مریم رضایی', ownerPhone:'09351234567' },
+      { id:3, plateP1:'۷۸', plateLetter:'س',   plateP2:'۲۲۳', plateProvince:'۱۱', carName:'دنا Plus', color:'مشکی',    ownerName:'حسن کریمی',  ownerPhone:'09181234567' },
     ];
   } catch { return []; }
 }
@@ -184,9 +184,8 @@ export default function Vehicles() {
     if (!search) return true;
     const pt = plateText(v).replace(/\s/g,'');
     const q  = search.replace(/\s/g,'');
-    return pt.includes(q) || v.plateLetter.includes(search) || v.brand.includes(search) ||
-      v.model.includes(search) || v.color.includes(search) ||
-      v.ownerName.includes(search) || v.ownerPhone.includes(search);
+    return pt.includes(q) || v.plateLetter.includes(search) || v.carName.includes(search) ||
+      v.color.includes(search) || v.ownerName.includes(search) || v.ownerPhone.includes(search);
   });
 
   const pg = usePagination(filtered, 10, search);
@@ -195,7 +194,7 @@ export default function Vehicles() {
     setEditId(v.id);
     setEditForm({
       plateP1:v.plateP1, plateLetter:v.plateLetter, plateP2:v.plateP2, plateProvince:v.plateProvince,
-      brand:v.brand, model:v.model, color:v.color, ownerName:v.ownerName, ownerPhone:v.ownerPhone,
+      carName:v.carName, color:v.color, ownerName:v.ownerName, ownerPhone:v.ownerPhone,
     });
     setErrors({});
   };
@@ -264,7 +263,7 @@ export default function Vehicles() {
             <thead>
               <tr>
                 <th>پلاک</th>
-                <th>برند / مدل</th>
+                <th>خودرو</th>
                 <th>رنگ</th>
                 <th>نام مالک</th>
                 <th>شماره تماس</th>
@@ -279,7 +278,7 @@ export default function Vehicles() {
                   <td>
                     <PlateBadge p1={v.plateP1} letter={v.plateLetter} p2={v.plateP2} province={v.plateProvince} />
                   </td>
-                  <td style={{ fontWeight:600 }}>{v.brand}{v.model ? ` ${v.model}` : ''}</td>
+                  <td style={{ fontWeight:600 }}>{v.carName}</td>
                   <td>
                     <div style={{ display:'flex', alignItems:'center', gap:6 }}>
                       <div style={{ width:13, height:13, borderRadius:'50%', background:COLOR_DOT[v.color]||'#94a3b8', border:'1.5px solid var(--border)', flexShrink:0 }}/>
@@ -323,13 +322,9 @@ export default function Vehicles() {
                 errors={errors}
               />
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
-                <div className={`form-group ${errors.brand?'field-invalid':''}`}>
-                  <label>برند</label>
-                  <input value={editForm.brand} onChange={e => setEditForm(f=>({...f,brand:e.target.value}))} placeholder="مثال: پژو، سمند، دنا"/>
-                </div>
                 <div className="form-group">
-                  <label>مدل</label>
-                  <input value={editForm.model} onChange={e => setEditForm(f=>({...f,model:e.target.value}))} placeholder="مثال: ۲۰۶"/>
+                  <label>برند / مدل خودرو</label>
+                  <input value={editForm.carName} onChange={e => setEditForm(f=>({...f,carName:e.target.value}))} placeholder="مثال: پژو ۲۰۶، سمند LX"/>
                 </div>
                 <div className="form-group">
                   <label>رنگ</label>
