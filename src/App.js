@@ -20,6 +20,7 @@ import Status from './pages/Status';
 import Settings from './pages/Settings';
 import AdminPanel from './pages/AdminPanel';
 import EditRepairs from './pages/EditRepairs';
+import Vehicles from './pages/Vehicles';
 
 function AdminOnly({ element }) {
   const role = getCurrentRole();
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/settings" element={<AdminOnly element={<Settings />} />} />
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/edit-repairs/:id" element={<EditRepairs />} />
+            <Route path="/vehicles" element={<Vehicles />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>

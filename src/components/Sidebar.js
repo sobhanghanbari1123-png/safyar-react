@@ -11,6 +11,7 @@ const ALL_NAV = [
   { to: '/',             label: 'داشبورد',      icon: '🏠', end: true, roles: ['ادمین', 'کاربر عادی'] },
   { to: '/reports',      label: 'گزارشات',      icon: '📊',            roles: ['ادمین', 'کاربر عادی'] },
   { to: '/customers',    label: 'مشتریان',      icon: '👥',            roles: ['ادمین', 'کاربر عادی'] },
+  { to: '/vehicles',     label: 'ماشین‌ها',     icon: '🚗',            roles: ['ادمین', 'کاربر عادی'] },
   { to: '/transactions', label: 'تراکنش‌ها',    icon: '💳',            roles: ['ادمین', 'کاربر عادی'] },
   { to: '/branches',     label: 'شعبه‌ها',      icon: '🏢',            roles: ['ادمین'] },
   { to: '/users',        label: 'کاربران',      icon: '👤',            roles: ['ادمین'] },
